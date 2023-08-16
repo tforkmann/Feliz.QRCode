@@ -8,7 +8,7 @@
         <Compile Include="SharedView.fs" />
         <Compile Include="Pages\Install.fs" />
         <Compile Include="Pages\Use.fs" />
-        <Compile Include="Pages\QRCode.fs" />
+        <Compile Include="Pages\QRCodeView.fs" />
         <Compile Include="View.fs" />
         <Compile Include="App.fs" />
         <Content Include="index.html" />

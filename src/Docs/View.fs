@@ -6,7 +6,6 @@ open Elmish
 open SharedView
 open Feliz.DaisyUI
 open Feliz.DaisyUI.Operators
-open Feliz.QRCode
 
 type Msg =
     | UrlChanged of Page

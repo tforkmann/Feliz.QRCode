@@ -6,7 +6,7 @@ open Feliz.QRCode
 open Docs.SharedView
 
 [<ReactComponent>]
-let QRCode () =
+let QRCodeCanvas () =
     QRCode.qrcodecanvas [
         qrCodeCanvas.value "https://www.google.com"
         qrCodeCanvas.size 600
@@ -26,7 +26,7 @@ let QRCode =
     Html.div [
         prop.style [ style.height 800 ]
         prop.children [
-            QRCode()
+            QRCodeCanvas()
         ]
     ]
 

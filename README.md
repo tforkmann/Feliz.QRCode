@@ -48,3 +48,4 @@ let QRCodeCanvas () =
     ]
 ```
 
+You can find more examples [here](https://tforkmann.github.io/Feliz.QRCode/)

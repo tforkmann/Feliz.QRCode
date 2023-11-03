@@ -6,10 +6,10 @@ open Feliz
 
 type Event = Browser.Types.Event
 
-// The !! below is used to "unsafely" expose a prop into an IChartJSProp.
+// The !! below is used to "unsafely" expose a prop into an IQRCodeProp.
 [<Erase>]
 type QRCode =
-    /// Creates a new ChartJS component.
+    /// Creates a new QRCode component.
 
     static member inline qrcodecanvas(props: IQRCodeCanvasProp seq) =
         Interop.reactApi.createElement (Interop.qrcodecanvas, createObj !!props)

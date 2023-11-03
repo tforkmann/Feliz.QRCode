@@ -18,16 +18,18 @@ type qrCodeCanvas =
         Interop.mkQRCodeCanvasProp "level" level
     static member inline includeMargin (includeMargin:bool) : IQRCodeCanvasProp =
         Interop.mkQRCodeCanvasProp "includeMargin" includeMargin
+    static member inline marginSize (marginSize:int) : IQRCodeCanvasProp =
+        Interop.mkQRCodeCanvasProp "marginSize" marginSize
     static member inline imageSettings props : IQRCodeCanvasProp =
         Interop.mkQRCodeCanvasProp "imageSettings" (createObj !!props)
 
 [<Erase>]
 type imageSettings =
     static member inline src(src: string ) : IImageSettingsProp =
-        Interop.mkImageSettingsPropProp "src" src
+        Interop.mkImageSettingsProp "src" src
     static member inline height(height: int ) : IImageSettingsProp =
-        Interop.mkImageSettingsPropProp "height" height
+        Interop.mkImageSettingsProp "height" height
     static member inline width(width: int ) : IImageSettingsProp =
-        Interop.mkImageSettingsPropProp "width" width
+        Interop.mkImageSettingsProp "width" width
     static member inline excavate(excavate: bool ) : IImageSettingsProp =
-        Interop.mkImageSettingsPropProp "excavate" excavate
+        Interop.mkImageSettingsProp "excavate" excavate

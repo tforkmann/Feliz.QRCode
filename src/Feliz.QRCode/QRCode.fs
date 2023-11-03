@@ -14,5 +14,8 @@ type QRCode =
     static member inline qrcodecanvas(props: IQRCodeCanvasProp seq) =
         Interop.reactApi.createElement (Interop.qrcodecanvas, createObj !!props)
 
+    static member inline qrcodesvg(props: IQRCodeCanvasProp seq) =
+        Interop.reactApi.createElement (Interop.qrcodesvg, createObj !!props)
+
     static member inline children(children: ReactElement list) =
         unbox<IQRCodeProp> (prop.children children)

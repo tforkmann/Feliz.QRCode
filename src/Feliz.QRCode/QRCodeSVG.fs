@@ -24,7 +24,7 @@ type qrCodeSVG =
         Interop.mkQRCodeSVGProp "imageSettings" (createObj !!props)
 
 [<Erase>]
-type imageSettings =
+type imageSettingsSVG =
     static member inline src(src: string ) : IImageSettingsProp =
         Interop.mkImageSettingsProp "src" src
     static member inline height(height: int ) : IImageSettingsProp =

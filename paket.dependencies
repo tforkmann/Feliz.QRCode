@@ -19,6 +19,7 @@ nuget Fake.Core.ReleaseNotes
 nuget Fake.Tools.Git
 nuget Fake.Core.UserInput
 nuget Feliz.QRCode
+nuget Fable.Browser.Svg
 group Package
     source https://api.nuget.org/v3/index.json
     framework: netstandard2.0

@@ -11,5 +11,3 @@ module Interop =
 
     let qrCodeCanvas: obj = import "QRCodeCanvas" "qrcode.react"
     let qrCodeSVG: obj = import "QRCodeSVG" "qrcode.react"
-
-    let SerializeSVGElement (svgSVGElement: Browser.Types.SVGSVGElement) : string = importMember "./js/serialize.js"

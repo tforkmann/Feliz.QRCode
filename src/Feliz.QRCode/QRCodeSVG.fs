@@ -22,6 +22,8 @@ type qrCodeSVG =
         Interop.mkQRCodeSVGProp "marginSize" marginSize
     static member inline imageSettings props : IQRCodeSVGProp =
         Interop.mkQRCodeSVGProp "imageSettings" (createObj !!props)
+    static member inline id (id: string) : IQRCodeSVGProp =
+        Interop.mkQRCodeSVGProp "id" id
 
 [<Erase>]
 type imageSettingsSVG =

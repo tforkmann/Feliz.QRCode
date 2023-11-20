@@ -20,6 +20,7 @@ nuget Fake.Tools.Git
 nuget Fake.Core.UserInput
 nuget Feliz.QRCode
 nuget Fable.Browser.Svg
+nuget Fable.SimpleXml
 
 group Package
     source https://api.nuget.org/v3/index.json

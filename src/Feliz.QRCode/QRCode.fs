@@ -11,11 +11,11 @@ type Event = Browser.Types.Event
 type QRCode =
     /// Creates a new QRCode component.
 
-    static member inline qrcodecanvas(props: IQRCodeCanvasProp seq) =
-        Interop.reactApi.createElement (Interop.qrcodecanvas, createObj !!props)
+    static member inline qrCodeCanvas(props: IQRCodeCanvasProp seq) =
+        Interop.reactApi.createElement (Interop.qrCodeCanvas, createObj !!props)
 
-    static member inline qrcodesvg(props: IQRCodeSVGProp seq) =
-        Interop.reactApi.createElement (Interop.qrcodesvg, createObj !!props)
+    static member inline qrCodeSVG(props: IQRCodeSVGProp seq) =
+        Interop.reactApi.createElement (Interop.qrCodeSVG, createObj !!props)
 
     static member inline children(children: ReactElement list) =
         unbox<IQRCodeProp> (prop.children children)

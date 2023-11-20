@@ -1,3 +1,5 @@
+#### 0.1.8 - 2023-11-20
+* Don't support ref anymore
 #### 0.1.7 - 2023-11-06
 * Add Ref to QRCodeSVG
 #### 0.1.5 - 2023-11-03

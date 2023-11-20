@@ -9,6 +9,7 @@ type IQRCodeProp =
 type IQRCodeCanvasProp =
     interface
     end
+
 type IQRCodeSVGProp =
     interface
     end

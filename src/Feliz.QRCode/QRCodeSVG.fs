@@ -3,7 +3,6 @@ namespace Feliz.QRCode
 open Feliz
 open Fable.Core.JsInterop
 open Fable.Core
-open Browser.Types
 
 [<Erase>]
 type qrCodeSVG =
@@ -23,8 +22,6 @@ type qrCodeSVG =
         Interop.mkQRCodeSVGProp "marginSize" marginSize
     static member inline imageSettings props : IQRCodeSVGProp =
         Interop.mkQRCodeSVGProp "imageSettings" (createObj !!props)
-    static member inline ref (ref:IRefValue<Browser.Types.SVGSVGElement>) : IQRCodeSVGProp =
-        Interop.mkQRCodeSVGProp "ref" ref
 
 [<Erase>]
 type imageSettingsSVG =

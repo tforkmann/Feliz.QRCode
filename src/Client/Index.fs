@@ -16,7 +16,7 @@ let update msg (model: Model) =
 
 [<ReactComponent>]
 let QRCodeCanvas () =
-    QRCode.qrcodecanvas [
+    QRCode.qrCodeCanvas [
         qrCodeCanvas.value "https://www.google.com"
         qrCodeCanvas.size 600
         qrCodeCanvas.bgColor "#ffffff"
@@ -24,10 +24,28 @@ let QRCodeCanvas () =
         qrCodeCanvas.level "L"
         qrCodeCanvas.includeMargin false
         qrCodeCanvas.imageSettings [
-            imageSettings.src "https://msuecar.azureedge.net/logos/favicon-32x32.png"
-            imageSettings.height 24
-            imageSettings.width 24
-            imageSettings.excavate true
+            imageSettingsCanvas.src "https://msuecar.azureedge.net/logos/favicon-32x32.png"
+            imageSettingsCanvas.height 24
+            imageSettingsCanvas.width 24
+            imageSettingsCanvas.excavate true
+        ]
+    ]
+
+[<ReactComponent>]
+let QRCodeSVG () =
+
+    QRCode.qrCodeSVG [
+        qrCodeSVG.value "https://www.google.com"
+        qrCodeSVG.size 600
+        qrCodeSVG.bgColor "#ffffff"
+        qrCodeSVG.fgColor "#000000"
+        qrCodeSVG.level "L"
+        qrCodeSVG.includeMargin false
+        qrCodeSVG.imageSettings [
+            imageSettingsSVG.src "https://msuecar.azureedge.net/logos/favicon-32x32.png"
+            imageSettingsSVG.height 24
+            imageSettingsSVG.width 24
+            imageSettingsSVG.excavate true
         ]
     ]
 
@@ -35,6 +53,6 @@ let view (model: Model) (dispatch: Msg -> unit) =
     Html.div [
         prop.style [ style.height 600; style.width 600 ]
         prop.children [
-            QRCodeCanvas()
+            QRCodeSVG()
         ]
     ]

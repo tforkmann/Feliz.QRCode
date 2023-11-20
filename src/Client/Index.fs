@@ -65,9 +65,9 @@ let view (model: Model) (dispatch: Msg -> unit) =
     let downloadSVG () =
         let svgSVGElement = Browser.Dom.document.getElementById "qrcode" :?> Browser.Types.SVGSVGElement
         let fileURI =
-            "data:image/svg+xml;charset=utf-8," +
-            Browser.Dom.window.encodeURIComponent ("""<?xml version="1.0" encoding="utf-8"?>""" +
-                Interop.SerializeSVGElement (svgSVGElement))
+            "data:image/svg+xml;charset=utf-8," + ""
+            // Browser.Dom.window.encodeURIComponent ("""<?xml version="1.0" encoding="utf-8"?>""" +
+            //     Interop.SerializeSVGElement (svgSVGElement))
         downloadStringAsFile fileURI "qrcode.svg"
 
     Html.div [

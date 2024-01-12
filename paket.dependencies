@@ -1,5 +1,5 @@
 source https://api.nuget.org/v3/index.json
-framework: net7.0
+framework: net8.0
 storage: none
 
 nuget Expecto
@@ -19,7 +19,6 @@ nuget Fake.Core.ReleaseNotes
 nuget Fake.Tools.Git
 nuget Fake.Core.UserInput
 nuget Feliz.QRCode
-nuget Fable.Browser.Svg
 nuget Fable.SimpleXml
 
 group Package

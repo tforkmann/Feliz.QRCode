@@ -7,7 +7,7 @@ open Docs.SharedView
 
 [<ReactComponent>]
 let QRCodeCanvas () =
-    QRCode.qrcodecanvas [
+    QRCode.qrCodeCanvas [
         qrCodeCanvas.value "https://www.google.com"
         qrCodeCanvas.size 600
         qrCodeCanvas.bgColor "#ffffff"
@@ -15,10 +15,10 @@ let QRCodeCanvas () =
         qrCodeCanvas.level "L"
         qrCodeCanvas.includeMargin false
         qrCodeCanvas.imageSettings [
-            imageSettings.src "https://msuecar.azureedge.net/logos/favicon-32x32.png"
-            imageSettings.height 24
-            imageSettings.width 24
-            imageSettings.excavate true
+            imageSettingsCanvas.src "https://msuecar.azureedge.net/logos/favicon-32x32.png"
+            imageSettingsCanvas.height 24
+            imageSettingsCanvas.width 24
+            imageSettingsCanvas.excavate true
         ]
     ]
 

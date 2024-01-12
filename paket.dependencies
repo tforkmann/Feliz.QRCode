@@ -8,7 +8,6 @@ nuget Fable.Mocha
 nuget Fable.Remoting.Client
 nuget Feliz.Bulma
 nuget Feliz.Router
-nuget Zanaptak.TypedCssClasses
 nuget Feliz.Markdown
 nuget Feliz.UseElmish
 nuget Feliz.DaisyUI

@@ -33,5 +33,9 @@ type imageSettingsSVG =
         Interop.mkImageSettingsProp "height" height
     static member inline width(width: int ) : IImageSettingsProp =
         Interop.mkImageSettingsProp "width" width
+    static member inline heightFloat(height: float ) : IImageSettingsProp =
+        Interop.mkImageSettingsProp "height" height
+    static member inline widthFloat(width: float ) : IImageSettingsProp =
+        Interop.mkImageSettingsProp "width" width
     static member inline excavate(excavate: bool ) : IImageSettingsProp =
         Interop.mkImageSettingsProp "excavate" excavate

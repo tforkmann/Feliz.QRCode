@@ -5,7 +5,7 @@ open Fable.Import
 open Elmish
 open Feliz
 open Feliz.QRCode
-open Fable.SimpleXml
+
 type Model = { Txt: string }
 
 type Msg = UpdateTxt of string
@@ -23,7 +23,7 @@ let QRCodeCanvas () =
         qrCodeCanvas.size 600
         qrCodeCanvas.bgColor "#ffffff"
         qrCodeCanvas.fgColor "#000000"
-        qrCodeCanvas.level Level.L
+        qrCodeCanvas.level "L"
         qrCodeCanvas.includeMargin false
         qrCodeCanvas.imageSettings [
             imageSettingsCanvas.src "https://msuecar.azureedge.net/logos/favicon-32x32.png"
@@ -37,14 +37,13 @@ open Feliz.Bulma
 
 [<ReactComponent>]
 let QRCodeSVG () =
-
     QRCode.qrCodeSVG [
         qrCodeSVG.value "https://www.google.com"
         qrCodeSVG.size 600
         qrCodeSVG.id "qrcode"
         qrCodeSVG.bgColor "#ffffff"
         qrCodeSVG.fgColor "#000000"
-        qrCodeSVG.level Level.L
+        qrCodeSVG.level "L"
         qrCodeSVG.includeMargin false
         qrCodeSVG.imageSettings [
             imageSettingsSVG.src "https://msuecar.azureedge.net/logos/favicon-32x32.png"

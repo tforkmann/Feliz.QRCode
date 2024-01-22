@@ -258,8 +258,6 @@ NUGET
     Thoth.Json (10.2)
       Fable.Core (>= 3.6.2)
       FSharp.Core (>= 4.7.2)
-    Zanaptak.TypedCssClasses (1.0)
-      FSharp.Core (>= 4.3.4)
 
 GROUP Package
 RESTRICTION: == netstandard2.0

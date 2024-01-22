@@ -14,7 +14,7 @@ type qrCodeSVG =
         Interop.mkQRCodeSVGProp "bgColor" bgColor
     static member inline fgColor (fgColor:string) : IQRCodeSVGProp =
         Interop.mkQRCodeSVGProp "fgColor" fgColor
-    static member inline level (level:string) : IQRCodeSVGProp =
+    static member inline level (level:Level) : IQRCodeSVGProp =
         Interop.mkQRCodeSVGProp "level" level
     static member inline includeMargin (includeMargin:bool) : IQRCodeSVGProp =
         Interop.mkQRCodeSVGProp "includeMargin" includeMargin

@@ -23,7 +23,7 @@ let QRCodeCanvas () =
         qrCodeCanvas.size 600
         qrCodeCanvas.bgColor "#ffffff"
         qrCodeCanvas.fgColor "#000000"
-        qrCodeCanvas.level "L"
+        qrCodeCanvas.level Level.L
         qrCodeCanvas.includeMargin false
         qrCodeCanvas.imageSettings [
             imageSettingsCanvas.src "https://msuecar.azureedge.net/logos/favicon-32x32.png"
@@ -44,7 +44,7 @@ let QRCodeSVG () =
         qrCodeSVG.id "qrcode"
         qrCodeSVG.bgColor "#ffffff"
         qrCodeSVG.fgColor "#000000"
-        qrCodeSVG.level "L"
+        qrCodeSVG.level Level.L
         qrCodeSVG.includeMargin false
         qrCodeSVG.imageSettings [
             imageSettingsSVG.src "https://msuecar.azureedge.net/logos/favicon-32x32.png"

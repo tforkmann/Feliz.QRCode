@@ -14,7 +14,7 @@ type qrCodeCanvas =
         Interop.mkQRCodeCanvasProp "bgColor" bgColor
     static member inline fgColor (fgColor:string) : IQRCodeCanvasProp =
         Interop.mkQRCodeCanvasProp "fgColor" fgColor
-    static member inline level (level:string) : IQRCodeCanvasProp =
+    static member inline level (level:Level) : IQRCodeCanvasProp =
         Interop.mkQRCodeCanvasProp "level" level
     static member inline includeMargin (includeMargin:bool) : IQRCodeCanvasProp =
         Interop.mkQRCodeCanvasProp "includeMargin" includeMargin

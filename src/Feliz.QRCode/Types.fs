@@ -17,3 +17,10 @@ type IQRCodeSVGProp =
 type IImageSettingsProp =
     interface
     end
+
+[<StringEnum;RequireQualifiedAccess>]
+type Level =
+    | L
+    | M
+    | Q
+    | H

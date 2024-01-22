@@ -1,3 +1,5 @@
+#### 0.2.5 - 2024-01-22
+* Add Level Type
 #### 0.2.4 - 2024-01-22
 * Add height and width as float
 #### 0.2.3 - 2024-01-12

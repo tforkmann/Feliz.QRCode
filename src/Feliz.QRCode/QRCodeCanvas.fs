@@ -22,7 +22,8 @@ type qrCodeCanvas =
         Interop.mkQRCodeCanvasProp "marginSize" marginSize
     static member inline imageSettings props : IQRCodeCanvasProp =
         Interop.mkQRCodeCanvasProp "imageSettings" (createObj !!props)
-
+    static member inline id (id: string) : IQRCodeCanvasProp =
+        Interop.mkQRCodeCanvasProp "id" id
 [<Erase>]
 type imageSettingsCanvas =
     static member inline src(src: string ) : IImageSettingsProp =

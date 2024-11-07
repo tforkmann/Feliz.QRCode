@@ -5,6 +5,8 @@ open Fable.Import
 open Elmish
 open Feliz
 open Feliz.QRCode
+open Browser.Types
+open Browser.Dom
 
 type Model = { Txt: string }
 
@@ -70,7 +72,27 @@ let view (model: Model) (dispatch: Msg -> unit) =
         downloadStringAsFile fileURI "qrcode.svg"
 
     let qrCodeReactElement = QRCodeCanvas()
-    let dataURL = QRCode.toDataURL qrCodeReactElement
+    let canvasStr = QRCode.convertToDataURL qrCodeReactElement
+    // Function to parse HTML string and retrieve canvas element without attaching to the document
+    let getCanvasElementFromHtmlString (html: string) =
+        // Step 1: Create a temporary container element (not added to document body)
+        let tempDiv = document.createElement("div")
+        tempDiv.innerHTML <- html
+
+        // Step 2: Access the canvas element within this temporary div
+        let canvas = tempDiv.querySelector("canvas") :?> HTMLCanvasElement
+
+        // Optional Step 3: Convert canvas to data URL if needed
+        let dataUrl = canvas.toDataURL("image/png")
+        printfn "Data URL: %s" dataUrl
+
+        // Return the canvas element for further manipulation if needed
+        canvas
+
+    // Call the function
+    let canvasElement = getCanvasElementFromHtmlString canvasStr
+    let dataURL = canvasElement.toDataURL("image/png")
+    printfn "dataURL: %s" dataURL
     Html.div [
         prop.style [ style.height 600; style.width 600 ]
         prop.children [

@@ -69,6 +69,8 @@ let view (model: Model) (dispatch: Msg -> unit) =
             //     Interop.SerializeSVGElement (svgSVGElement))
         downloadStringAsFile fileURI "qrcode.svg"
 
+    let qrCodeReactElement = QRCodeCanvas()
+    let dataURL = QRCode.toDataURL qrCodeReactElement
     Html.div [
         prop.style [ style.height 600; style.width 600 ]
         prop.children [

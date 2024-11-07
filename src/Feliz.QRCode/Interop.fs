@@ -2,6 +2,8 @@ namespace Feliz.QRCode
 
 open Fable.Core
 open Fable.Core.JsInterop
+open Feliz
+
 
 [<Erase; RequireQualifiedAccess>]
 module Interop =
@@ -11,3 +13,4 @@ module Interop =
 
     let qrCodeCanvas: obj = import "QRCodeCanvas" "qrcode.react"
     let qrCodeSVG: obj = import "QRCodeSVG" "qrcode.react"
+    let renderToStaticMarkup (reactElement:ReactElement): Browser.Types.HTMLCanvasElement = import "renderToStaticMarkup" "react-dom/server"

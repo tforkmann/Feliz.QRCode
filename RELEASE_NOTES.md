@@ -1,3 +1,5 @@
+#### 0.2.8 - 2024-11-07
+* Add toDataURL to QRCodeCanvas
 #### 0.2.7 - 2024-10-18
 * Add Id to QRCodeCanvas
 #### 0.2.6 - 2024-01-22

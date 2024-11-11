@@ -37,6 +37,7 @@ let QRCodeCanvas () =
         match qrCodeRefBig.current with
         | None -> failwithf "should be some"
         | Some e -> e
+
     let qrCodeCanvasSmall () =
         QRCode.qrCodeCanvas [
             qrCodeCanvas.ref qrCodeRefSmall

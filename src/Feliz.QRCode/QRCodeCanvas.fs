@@ -24,6 +24,10 @@ type qrCodeCanvas =
         Interop.mkQRCodeCanvasProp "imageSettings" (createObj !!props)
     static member inline id (id: string) : IQRCodeCanvasProp =
         Interop.mkQRCodeCanvasProp "id" id
+    static member inline ref (ref: string) : IQRCodeCanvasProp =
+        Interop.mkQRCodeCanvasProp "ref" ref
+    static member inline ref(ref: IRefValue<Browser.Types.HTMLCanvasElement option>) : IQRCodeCanvasProp =
+        Interop.mkQRCodeCanvasProp "ref" ref
 [<Erase>]
 type imageSettingsCanvas =
     static member inline src(src: string ) : IImageSettingsProp =

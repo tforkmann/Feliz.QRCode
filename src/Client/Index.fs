@@ -7,6 +7,7 @@ open Feliz
 open Feliz.QRCode
 open Browser.Types
 open Browser.Dom
+open Feliz.Bulma
 
 type Model = { Txt: string }
 
@@ -17,25 +18,72 @@ let init () = { Txt = "" }, Cmd.none
 let update msg (model: Model) =
     match msg with
     | UpdateTxt txt -> { model with Txt = txt }, Cmd.none
+let downloadStringAsFile (data: string) (filename: string) =
+    let a = Browser.Dom.document.createElement("a") :?> Browser.Types.HTMLAnchorElement
+    a.href <- data
+    a.setAttribute("download", filename)
+    a.click()
 
 [<ReactComponent>]
 let QRCodeCanvas () =
-    QRCode.qrCodeCanvas [
-        qrCodeCanvas.value "https://www.google.com"
-        qrCodeCanvas.size 600
-        qrCodeCanvas.bgColor "#ffffff"
-        qrCodeCanvas.fgColor "#000000"
-        qrCodeCanvas.level "L"
-        qrCodeCanvas.includeMargin false
-        qrCodeCanvas.imageSettings [
-            imageSettingsCanvas.src "https://msuecar.azureedge.net/logos/favicon-32x32.png"
-            imageSettingsCanvas.height 24
-            imageSettingsCanvas.width 24
-            imageSettingsCanvas.excavate true
+    let qrCodeRefSmall: IRefValue<HTMLCanvasElement option> = React.useRef (None)
+    let qrCodeRefBig: IRefValue<HTMLCanvasElement option> = React.useRef (None)
+
+    let receiveChartRefSmall () =
+        match qrCodeRefSmall.current with
+        | None -> failwithf "should be some"
+        | Some e -> e
+    let receiveChartRefBig () =
+        match qrCodeRefBig.current with
+        | None -> failwithf "should be some"
+        | Some e -> e
+    let qrCodeCanvasSmall () =
+        QRCode.qrCodeCanvas [
+            qrCodeCanvas.ref qrCodeRefSmall
+            qrCodeCanvas.value "https://www.google.com"
+            qrCodeCanvas.size 300
+            qrCodeCanvas.bgColor "#ffffff"
+            qrCodeCanvas.fgColor "#000000"
+            qrCodeCanvas.level "L"
+            qrCodeCanvas.includeMargin false
+        ]
+    let qrCodeCanvasBig () =
+        QRCode.qrCodeCanvas [
+            qrCodeCanvas.ref qrCodeRefBig
+            qrCodeCanvas.value "https://www.google.com"
+            qrCodeCanvas.size 1200
+            qrCodeCanvas.bgColor "#ffffff"
+            qrCodeCanvas.fgColor "#000000"
+            qrCodeCanvas.level "L"
+            qrCodeCanvas.includeMargin false
+        ]
+    Html.div [
+        qrCodeCanvasSmall ()
+        Html.div [
+            prop.style [ style.display.none ]
+            prop.children [ qrCodeCanvasBig () ]
+        ]
+        Bulma.button.button [
+            button.isFullWidth
+            prop.style [ style.color.white; style.backgroundColor.red ]
+            prop.onClick (fun _ ->
+                let qrCodeCanvas = receiveChartRefSmall()
+                let dataURL = qrCodeCanvas.toDataURL("image/png")
+                downloadStringAsFile dataURL "qrcode.png"
+            )
+            prop.text "Download Small PNG"
+        ]
+        Bulma.button.button [
+            button.isFullWidth
+            prop.style [ style.color.white; style.backgroundColor.red ]
+            prop.onClick (fun _ ->
+                let qrCodeCanvas = receiveChartRefBig()
+                let dataURL = qrCodeCanvas.toDataURL("image/png")
+                downloadStringAsFile dataURL "qrcode.png"
+            )
+            prop.text "Download Big PNG"
         ]
     ]
-
-open Feliz.Bulma
 
 [<ReactComponent>]
 let QRCodeSVG () =
@@ -56,52 +104,9 @@ let QRCodeSVG () =
     ]
 
 let view (model: Model) (dispatch: Msg -> unit) =
-
-    let downloadStringAsFile (data: string) (filename: string) =
-        let a = Browser.Dom.document.createElement("a") :?> Browser.Types.HTMLAnchorElement
-        a.href <- data
-        a.setAttribute("download", filename)
-        a.click()
-
-    let downloadSVG () =
-        let svgSVGElement = Browser.Dom.document.getElementById "qrcode" :?> Browser.Types.SVGSVGElement
-        let fileURI =
-            "data:image/svg+xml;charset=utf-8," + ""
-            // Browser.Dom.window.encodeURIComponent ("""<?xml version="1.0" encoding="utf-8"?>""" +
-            //     Interop.SerializeSVGElement (svgSVGElement))
-        downloadStringAsFile fileURI "qrcode.svg"
-
-    let qrCodeReactElement = QRCodeCanvas()
-    let canvasStr = QRCode.convertToDataURL qrCodeReactElement
-    // Function to parse HTML string and retrieve canvas element without attaching to the document
-    let getCanvasElementFromHtmlString (html: string) =
-        // Step 1: Create a temporary container element (not added to document body)
-        let tempDiv = document.createElement("div")
-        tempDiv.innerHTML <- html
-
-        // Step 2: Access the canvas element within this temporary div
-        let canvas = tempDiv.querySelector("canvas") :?> HTMLCanvasElement
-
-        // Optional Step 3: Convert canvas to data URL if needed
-        let dataUrl = canvas.toDataURL("image/png")
-        printfn "Data URL: %s" dataUrl
-
-        // Return the canvas element for further manipulation if needed
-        canvas
-
-    // Call the function
-    let canvasElement = getCanvasElementFromHtmlString canvasStr
-    let dataURL = canvasElement.toDataURL("image/png")
-    printfn "dataURL: %s" dataURL
     Html.div [
         prop.style [ style.height 600; style.width 600 ]
         prop.children [
-            QRCodeSVG()
-            Bulma.button.button [
-                button.isFullWidth
-                prop.style [ style.color.white; style.backgroundColor.red ]
-                prop.onClick (fun _ -> downloadSVG ())
-                prop.text "Download SVG"
-            ]
+            QRCodeCanvas()
         ]
     ]

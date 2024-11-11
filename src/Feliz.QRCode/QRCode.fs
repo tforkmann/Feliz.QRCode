@@ -22,12 +22,5 @@ type QRCode =
     static member inline qrCodeSVG(props: IQRCodeSVGProp seq) =
         Interop.reactApi.createElement (Interop.qrCodeSVG, createObj !!props)
 
-    static member inline convertToDataURL(element: ReactElement) : string=
-        let staticHtml = ReactDomServer.renderToStaticMarkup element
-        let tempDiv = document.createElement("div")
-        tempDiv.innerHTML <- staticHtml
-        let canvas = tempDiv.querySelector("canvas") :?> HTMLCanvasElement
-        canvas.toDataURL("image/png")
-
     static member inline children(children: ReactElement list) =
         unbox<IQRCodeProp> (prop.children children)
